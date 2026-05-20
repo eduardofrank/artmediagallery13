@@ -1,0 +1,21 @@
+{
+    "name": "eduardo-frank/artmediagallery13",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "homepage": "https://eduardofrank.co",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "bk2k/bootstrap-package": "^15.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EduardoFrank\\Artmediagallery13\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "artmediagallery13"
+        }
+    }
+}

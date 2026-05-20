@@ -1,0 +1,21 @@
+page {
+    includeCSS {
+        theme = EXT:artmediagallery13/Resources/Public/Scss/Theme/theme.scss
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        artmediagallery13_scripts = EXT:artmediagallery13/Resources/Public/JavaScript/main.js
+    }
+}
