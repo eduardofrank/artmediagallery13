@@ -2,10 +2,11 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'artmediagallery13',
-    'description' => '',
+    'description' => 'Artmedia Gallery site package for TYPO3 13 (Site Set)',
     'category' => 'templates',
     'constraints' => [
         'depends' => [
+            'typo3' => '13.4.0-13.99.99',
             'bootstrap_package' => '15.0.0-15.99.99',
         ],
         'conflicts' => [

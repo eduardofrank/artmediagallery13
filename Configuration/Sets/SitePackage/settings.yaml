@@ -1,21 +1,36 @@
-plugin.bootstrap_package.settings.scss.primary: '#eb3e4a'
+plugin.bootstrap_package.settings.scss.primary: '#766f75'
 plugin.bootstrap_package.settings.scss.secondary: '#013859'
-plugin.bootstrap_package.view.layoutRootPath: 'EXT:artmediagallery13/Resources/Private/Layouts/'
-plugin.bootstrap_package.view.partialRootPath: 'EXT:artmediagallery13/Resources/Private/Partials/'
-plugin.bootstrap_package.view.templateRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/'
+plugin.bootstrap_package.settings.scss.grid-float-breakpoint: '9999px'
 
 plugin.bootstrap_package_contentelements.view.layoutRootPath: 'EXT:artmediagallery13/Resources/Private/Layouts/ContentElements/'
 plugin.bootstrap_package_contentelements.view.partialRootPath: 'EXT:artmediagallery13/Resources/Private/Partials/ContentElements/'
 plugin.bootstrap_package_contentelements.view.templateRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/ContentElements/'
 
+plugin.tx_news.view.twb5.templateRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Templates/'
+plugin.tx_news.view.twb5.partialRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Partials/'
+plugin.tx_news.view.twb5.layoutRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Layouts/'
+
 page.logo.file: 'EXT:artmediagallery13/Resources/Public/Images/logo.svg'
 page.logo.fileInverted: 'EXT:artmediagallery13/Resources/Public/Images/logo-inverted.svg'
-page.logo.width: 192
-page.logo.alt: 'My Site Package'
-page.logo.linktitle: 'My Site Package'
+page.logo.height: 114
+page.logo.width: 235
+page.logo.alt: 'Artmedia Gallery'
+page.logo.linktitle: 'artmediagallery'
 
 page.favicon.file: 'EXT:artmediagallery13/Resources/Public/Icons/favicon.ico'
 
 page.fluidtemplate.layoutRootPath: 'EXT:artmediagallery13/Resources/Private/Layouts/Page/'
 page.fluidtemplate.partialRootPath: 'EXT:artmediagallery13/Resources/Private/Partials/Page/'
 page.fluidtemplate.templateRootPath: 'EXT:artmediagallery13/Resources/Private/Templates/Page/'
+
+page.includePath.icons: 'EXT:artmediagallery13/Resources/Public/Icons/'
+page.preloader.enable: 0
+page.theme.meta.enable: 0
+page.theme.socialmedia.enable: 0
+page.theme.language.enable: 0
+page.theme.breadcrumb.enable: 1
+page.theme.copyright.text: '© Artmediaus 2016-23'
+page.theme.news.list.maxWInText: 0
+page.tracking.google.trackingID: 'UA-142998122-1'
+
+styles.content.defaultHeaderType: 3

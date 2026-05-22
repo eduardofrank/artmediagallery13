@@ -1,0 +1,11 @@
+TYPO3:
+  CMS:
+    Form:
+      persistenceManager:
+        allowedFileMounts:
+          10: 1:/user_upload/
+        allowSaveToExtensionPaths: true
+        allowDeleteFromExtensionPaths: true
+        allowedExtensionPaths:
+          10: EXT:artmediagallery13/Resources/Private/Forms
+

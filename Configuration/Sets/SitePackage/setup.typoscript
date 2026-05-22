@@ -1,6 +1,13 @@
+##############
+#### PAGE ####
+##############
 page {
+    includeCSSLibs {
+        adobewebfont = https://use.typekit.net/pcy8rgj.css
+    }
     includeCSS {
         theme = EXT:artmediagallery13/Resources/Public/Scss/Theme/theme.scss
+        gallery_layout = EXT:artmediagallery13/Resources/Public/Css/gallery.css
     }
 
     includeJSLibs {
@@ -19,3 +26,360 @@ page {
         artmediagallery13_scripts = EXT:artmediagallery13/Resources/Public/JavaScript/main.js
     }
 }
+
+################################
+#### ADDED BY EDUARDO FRANK ####
+################################
+config.admPanel = 0
+config.contentObjectExceptionHandler = 0
+
+#### FORM ###
+plugin.tx_form.settings.yamlConfigurations {
+    100 = EXT:artmediagallery13/Configuration/Yaml/FormSetup.yaml
+}
+
+module.tx_form.settings.yamlConfigurations {
+    100 = EXT:artmediagallery13/Configuration/Yaml/FormSetup.yaml
+}
+
+#### NEWS ####
+config.recordLinks.tx_news {
+    typolink {
+        parameter.stdWrap.cObject = CONTENT
+        parameter.stdWrap.cObject {
+            table = sys_category
+            select {
+                pidInList = 31
+                max = 1
+                selectFields = sys_category.single_pid AS detailPid
+                join = sys_category_record_mm ON sys_category_record_mm.uid_local = sys_category.uid
+                where = sys_category_record_mm.tablenames='tx_news_domain_model_news' AND sys_category_record_mm.uid_foreign = {field: uid}
+                where.insertData = 1
+                andWhere.stdWrap.intVal = 1
+                andWhere.stdWrap.stripHtml = 1
+            }
+            renderObj = TEXT
+            renderObj.field = detailPid
+            renderObj.wrap = |
+        }
+        additionalParams.data = field:uid
+        additionalParams.wrap = &tx_news_pi1[news]=|
+        useCacheHash = 0
+    }
+}
+
+plugin.tx_news.settings.list.media.image.width = 900
+
+plugin.tx_news.view {
+    templateRootPaths {
+        20 = EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Templates/
+    }
+    partialRootPaths {
+        20 = EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Partials/
+    }
+    layoutRootPaths {
+        20 = EXT:artmediagallery13/Resources/Private/Templates/Styles/Twb/Layouts/
+    }
+}
+
+#### SEO CONFIGURATION ###
+plugin.tx_seo.config {
+    xmlSitemap {
+        sitemaps {
+            exhibit {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 96
+                    recursive = 2
+                    url {
+                        pageId = 22
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            statement {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 94
+                    recursive = 2
+                    url {
+                        pageId = 25
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            pr {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 95
+                    recursive = 2
+                    url {
+                        pageId = 24
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            cv {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 93
+                    recursive = 2
+                    url {
+                        pageId = 30
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            artists {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 92
+                    recursive = 2
+                    url {
+                        pageId = 23
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            blog {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 29
+                    recursive = 2
+                    url {
+                        pageId = 33
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+            offgallery {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                    table = tx_news_domain_model_news
+                    sortField = sorting
+                    lastModifiedField = tstamp
+                    pid = 91
+                    recursive = 2
+                    url {
+                        pageId = 27
+                        fieldToParameterMap {
+                            uid = tx_news_pi1[news]
+                        }
+                        additionalGetParameters {
+                            tx_news_pi1.controller = News
+                            tx_news_pi1.action = detail
+                        }
+                        useCacheHash = 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+#### REDIRECTION FOR DETAIL PAGES WHEN CALLED ALONE ###
+[page["uid"] == 22]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,13,404
+[END]
+
+[page["uid"] == 23]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,12,404
+[END]
+
+[page["uid"] == 24]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,13,404
+[END]
+
+[page["uid"] == 25]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,13,404
+[END]
+
+[page["uid"] == 27]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,14,404
+[END]
+
+[page["uid"] == 28]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,12,404
+[END]
+
+[page["uid"] == 30]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,12,404
+[END]
+
+[page["uid"] == 33]
+    plugin.tx_news.settings.detail.errorHandling = redirectToPage,15,404
+[END]
+
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+        dataProcessing {
+            30 {
+                special = rootline
+                special.range = 1|-1
+                includeNotInMenu = 1
+                as = breadcrumb
+                if {
+                    value = {$page.theme.breadcrumb.enableLevel}
+                    value {
+                        insertData = 1
+                        prioriCalc = 1
+                        stdWrap.wrap = |-1
+                    }
+                    isGreaterThan {
+                        data = level
+                    }
+                }
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = nav_icon
+                        as = icon
+                    }
+                }
+            }
+        }
+    }
+}
+
+page {
+    headerData {
+        2024 = FLUIDTEMPLATE
+        2024 {
+            template = TEXT
+            template.value (
+<link rel="apple-touch-icon" sizes="180x180" href="{f:uri.resource(path: 'Icons/apple-touch-icon.png', extensionName: 'artmediagallery13')}">
+<link rel="icon" type="image/png" sizes="32x32" href="{f:uri.resource(path: 'Icons/favicon-32x32.png', extensionName: 'artmediagallery13')}">
+<link rel="icon" type="image/png" sizes="16x16" href="{f:uri.resource(path: 'Icons/favicon-16x16.png', extensionName: 'artmediagallery13')}">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+            )
+        }
+    }
+}
+
+lib.contentElement.settings.responsiveimages.variants {
+    default {
+        breakpoint = 1200
+        width = 1100
+        sizes {
+            1\.5x {
+                multiplier = 1.5
+            }
+            2x {
+                multiplier = 2
+            }
+        }
+    }
+    large {
+        breakpoint = 992
+        width = 920
+        sizes {
+            1\.5x {
+                multiplier = 1.5
+            }
+            2x {
+                multiplier = 2
+            }
+        }
+    }
+    medium {
+        breakpoint = 768
+        width = 680
+        sizes {
+            1\.5x {
+                multiplier = 1.5
+            }
+            2x {
+                multiplier = 2
+            }
+        }
+    }
+    small {
+        breakpoint = 576
+        width = 500
+        sizes {
+            1\.5x {
+                multiplier = 1.5
+            }
+            2x {
+                multiplier = 2
+            }
+        }
+    }
+    extrasmall {
+        breakpoint = unset
+        width = 374
+        sizes {
+            1\.5x {
+                multiplier = 1.5
+            }
+            2x {
+                multiplier = 2
+            }
+        }
+    }
+}
+
+# Restore Bootstrap Package content element rendering after optional fluid-styled-content set
+@import 'EXT:bootstrap_package/Configuration/TypoScript/ContentElement/setup.typoscript'
