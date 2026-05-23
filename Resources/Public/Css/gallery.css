@@ -30,6 +30,25 @@ a {
   text-decoration: none;
 }
 
+.frame-type-text .frame-inner,
+.frame-type-textmedia .frame-inner,
+.frame-type-textpic .frame-inner {
+    color: #7c939b;
+}
+
+.frame-type-text .frame-inner a,
+.frame-type-textmedia .frame-inner a,
+.frame-type-textpic .frame-inner a {
+    color: #7c939b;
+}
+
+.frame-type-text .frame-inner a:hover,
+.frame-type-textmedia .frame-inner a:hover,
+.frame-type-textpic .frame-inner a:hover {
+    color: var(--menu-rollover-color);
+}
+
+
 a:hover,
 a:focus {
   color: var(--menu-rollover-color);
