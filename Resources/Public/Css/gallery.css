@@ -43,7 +43,6 @@ body, .body-bg {
     margin: 0;
     padding: 0;
     background-color: var(--body-bkgd-color) !important;
-    /*font-family: 'Libre Franklin', sans-serif;*/
     font-family: itc-avant-garde-gothic-pro, sans-serif;
 }
 
@@ -1390,6 +1389,12 @@ body, .body-bg {
     margin-top:auto;
 }
 
+#page-footer p {
+    font-size: smaller;
+    margin:0;
+    padding:0;
+}
+
 .footer-section-meta {
     text-align: left;
     margin-bottom: 0;
@@ -1405,7 +1410,7 @@ body, .body-bg {
 }
 
 .footer-copyright p {
-  color:#ffffff;
+  color:#7c939b;
 }
 
 /***** END OF FOOTER *****/
