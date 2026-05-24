@@ -19,7 +19,7 @@ page {
     }
 
     includeJSFooterlibs {
-
+        bootstrap_lightbox = EXT:artmediagallery13/Resources/Public/JavaScript/lightbox.js
     }
 
     includeJSFooter {

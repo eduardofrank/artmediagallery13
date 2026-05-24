@@ -5,18 +5,9 @@
 <f:variable name="headerClass">{headerClass}{f:if(condition: theme.navigation.type, else:' navbar-top', then:' navbar-{theme.navigation.type} navbar-fixed-{theme.navigation.type}')}</f:variable>
 <header id="page-header" class="{headerClass}">
     <div class="container">
-        <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-{f:if(condition: logo.normal, then: 'image', else: 'text')}" title="{settings.logo.linktitle}">
-            <f:if condition="{logo.normal}">
-                <f:then>
-                    <img class="navbar-brand-logo-normal" src="{f:uri.image(image: logo.normal)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                    <f:if condition="{logo.inverted}">
-                        <img class="navbar-brand-logo-inverted" src="{f:uri.image(image: logo.inverted)}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
-                    </f:if>
-                </f:then>
-                <f:else>
-                    <span>{siteTitle}</span>
-                </f:else>
-            </f:if>
+        <f:link.page pageUid="{rootPage}" class="navbar-brand navbar-brand-image" title="{settings.logo.linktitle}">
+            <img class="navbar-brand-logo-normal" src="{f:uri.resource(path: 'Images/logo.svg', extensionName: 'artmediagallery13')}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
+            <img class="navbar-brand-logo-inverted" src="{f:uri.resource(path: 'Images/logo-inverted.svg', extensionName: 'artmediagallery13')}" alt="{logoAlt}" height="{settings.logo.height}" width="{settings.logo.width}">
         </f:link.page>
         <f:if condition="{mainnavigation}">
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#mainnavigation" data-bs-target="#mainnavigation" aria-controls="mainnavigation" aria-expanded="false" aria-label="{f:translate(key: 'togglenavigation', extensionName: 'bootstrap_package')}">
@@ -26,6 +17,11 @@
                 <f:render partial="DropIn/Navigation/MainBefore" arguments="{_all}" />
                 <f:render section="MainNavigation" arguments="{menu: mainnavigation, theme: theme}" />
                 <f:render partial="DropIn/Navigation/MainAfter" arguments="{_all}" />
+                <div class="switch">
+                    <a title="artmediaGallery" href="https://artmedia.studio/">
+                        <img class="switch-logo" src="{f:uri.resource(path: 'Images/S.svg', extensionName: 'artmediagallery13')}" alt="Artmedia Studio" width="55" height="54">
+                    </a>
+                </div>
             </nav>
         </f:if>
     </div>

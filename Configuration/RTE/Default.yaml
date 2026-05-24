@@ -1,21 +1,28 @@
-# Site RTE preset for TYPO3 13 / CKEditor 5
-# Base on rte_ckeditor_image (includes typo3image plugin). Do not override
-# importModules here — that would remove the image plugin module.
+# Full CKEditor 5 preset for Artmedia Gallery (TYPO3 core Full + typo3image).
+# Import base layers only — do NOT import Full.yaml or rte_ckeditor_image/Default.yaml
+# (that would merge duplicate toolbars). Plugin.yaml adds the image module only.
 
 imports:
-    - { resource: 'EXT:rte_ckeditor_image/Configuration/RTE/Default.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
+    - { resource: 'EXT:rte_ckeditor_image/Configuration/RTE/Plugin.yaml' }
 
 editor:
   config:
     contentsCss:
+      - 'EXT:rte_ckeditor/Resources/Public/Css/contents.css'
       - 'EXT:bootstrap_package/Resources/Public/Css/bootstrap5-rte.min.css'
+      - 'EXT:rte_ckeditor_image/Resources/Public/Css/editor-image-widget.css'
       - 'EXT:rte_ckeditor_image/Resources/Public/Css/image-alignment.css'
 
     style:
       definitions:
+        - { name: 'Orange title H2', element: 'h2', classes: ['orange'] }
+        - { name: 'Orange title H3', element: 'h3', classes: ['orange'] }
         - { name: 'Quote / Citation', element: 'blockquote' }
+        - { name: 'Code block', element: 'code' }
         - { name: 'Yellow marker', element: 'span', classes: ['yellow-marker'] }
-        - { name: 'Code inline', element: 'code' }
 
     heading:
       options:
@@ -28,20 +35,26 @@ editor:
 
     toolbar:
       items:
+        - removeFormat
         - undo
         - redo
         - '|'
         - findAndReplace
-        - selectAll
-        - '|'
         - link
-        - insertTable
         - insertimage
-        - horizontalLine
-        - specialCharacters
+        - '|'
+        - insertTable
+        - tableColumn
+        - tableRow
+        - mergeTableCells
+        - tableProperties
+        - tableCellProperties
+        - '|'
+        - selectAll
         - '|'
         - sourceEditing
         - showBlocks
+        - horizontalLine
         - '-'
         - bold
         - italic
@@ -58,14 +71,19 @@ editor:
         - outdent
         - alignment
         - '|'
-        - removeFormat
+        - specialCharacters
         - '-'
         - style
         - heading
         - fontFamily
-        - fontSize
-        - fontColor
         - fontBackgroundColor
+        - fontColor
+        - fontSize
+        - textPartLanguage
+        - highlight
+        - highlight:greenMarker
+        - '|'
+        - fullscreen
 
     alignment:
       options:
@@ -73,6 +91,16 @@ editor:
         - { name: 'center', className: 'text-center' }
         - { name: 'right', className: 'text-end' }
         - { name: 'justify', className: 'text-justify' }
+
+    table:
+      defaultHeadings: { rows: 1 }
+      contentToolbar:
+        - tableColumn
+        - tableRow
+        - mergeTableCells
+        - tableProperties
+        - tableCellProperties
+        - toggleTableCaption
 
     fontColor:
       colors:
@@ -98,16 +126,31 @@ editor:
         - 16
         - 18
         - 20
+        - 21
 
-    table:
-      defaultHeadings: { rows: 1 }
-      contentToolbar:
-        - tableColumn
-        - tableRow
-        - mergeTableCells
-        - tableProperties
-        - tableCellProperties
-        - toggleTableCaption
+    list:
+      properties:
+        styles: true
+        startIndex: true
+        reversed: true
+
+    indentBlock:
+      classes:
+        - 'ps-2'
+        - 'ps-3'
+        - 'ps-4'
+
+    language:
+      textPartLanguage:
+        - { title: 'English', languageCode: 'en' }
+        - { title: 'French', languageCode: 'fr' }
+        - { title: 'German', languageCode: 'de' }
+
+    highlight:
+      options:
+        - { model: 'yellowMarker', class: 'marker-yellow', title: 'Yellow marker', type: 'marker', color: 'var(--ck-content--highlight-marker-yellow)' }
+        - { model: 'greenMarker', class: 'marker-green', title: 'Green marker', type: 'marker', color: 'var(--ck-content-highlight-marker-green)' }
+        - { model: 'redPen', class: 'pen-red', title: 'Red pen', type: 'pen', color: 'var(--ck-content-highlight-pen-red)' }
 
     typo3image:
       toolbar:
@@ -121,6 +164,10 @@ editor:
         - imageStyle:image-block
 
     importModules:
-      - '@netresearch/rte-ckeditor-image/Plugins/typo3image.js'
+      - { module: '@ckeditor/ckeditor5-word-count', exports: ['WordCount'] }
       - { module: '@ckeditor/ckeditor5-font', exports: ['Font'] }
       - { module: '@ckeditor/ckeditor5-show-blocks', exports: ['ShowBlocks'] }
+      - { module: '@ckeditor/ckeditor5-language', exports: ['TextPartLanguage'] }
+      - { module: '@ckeditor/ckeditor5-highlight', exports: ['Highlight'] }
+      - { module: '@ckeditor/ckeditor5-list', exports: ['ListProperties'] }
+      - { module: '@ckeditor/ckeditor5-fullscreen', exports: ['Fullscreen'] }

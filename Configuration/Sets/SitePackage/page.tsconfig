@@ -4,6 +4,13 @@ RTE {
     default {
         preset = artmediagallery13
     }
+    config {
+        tt_content {
+            bodytext {
+                preset = artmediagallery13
+            }
+        }
+    }
 }
 
 TCEFORM {
