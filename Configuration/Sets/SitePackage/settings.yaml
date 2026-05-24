@@ -29,7 +29,7 @@ page.theme.meta.enable: 0
 page.theme.socialmedia.enable: 0
 page.theme.language.enable: 0
 page.theme.breadcrumb.enable: 1
-page.theme.copyright.text: '© Artmediaus 2016-26'
+page.theme.copyright.text: '© Artmediaus 2016-2026. All rights reserved.'
 page.theme.news.list.maxWInText: 0
 page.tracking.google.trackingID: 'UA-142998122-1'
 
