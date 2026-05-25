@@ -2,3 +2,4 @@ name: eduardo-frank/artmediagallery13
 label: 'artmediagallery13'
 dependencies:
   - bootstrap-package/full
+  - netresearch/rte-ckeditor-image
