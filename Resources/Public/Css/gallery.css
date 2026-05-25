@@ -1375,7 +1375,6 @@ body, .body-bg {
   flex-direction: column;
   margin:0;
   padding:0;
-  background-color:#fff;
 }
 
 #page-footer {
@@ -1386,6 +1385,14 @@ body, .body-bg {
     font-size: smaller;
     margin:0;
     padding:0;
+    color:var(--frame-link-color);
+}
+
+#page-footer .frame-inner a,
+#page-footer h2.element-header.h4 {
+    margin:0;
+    padding:0;
+    color:var(--frame-link-color);
 }
 
 .footer-section-meta {
@@ -1403,13 +1410,14 @@ body, .body-bg {
 }
 
 .footer-copyright p {
-  color:#7c939b;
+  color:var(--frame-link-color);
 }
 
 #c1502, #c1503, #c1504, #c1507 {
     margin-top:1.5rem;
     margin-bottom:1.5rem;
     padding:0;
+    color:var(--frame-link-color);
 }
 
 #c1507 .frame-inner{
