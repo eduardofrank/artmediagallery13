@@ -1424,7 +1424,7 @@ body, .body-bg {
     display: flex;
     margin:0;
     padding:0;
-    justify-content: center;
+#    justify-content: center;
 }
 
 @media (min-width: 769px) {
