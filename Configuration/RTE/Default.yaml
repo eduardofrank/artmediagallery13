@@ -107,7 +107,7 @@ editor:
         - { label: 'Orange', color: '#ff8700' }
         - { label: 'Blue', color: '#0080c9' }
         - { label: 'Green', color: '#209d44' }
-        - { label: 'Muted gray', color: '#7c939b' }
+        - { label: 'Muted gray', color: '#766f75' }
 
     fontBackgroundColor:
       colors:

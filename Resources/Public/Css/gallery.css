@@ -34,6 +34,11 @@
 
     --cardgroup-gap: 1.5rem;
     --bs-gutter-x: 0;
+
+    /* Frame/footer text + link color. Locally pinned (replaces bootstrap_package's
+       contextual --frame-link-color, #766f75 on default backgrounds) so a theme
+       upgrade can't shift it. Value matches --bs-primary / --nav-link-hover-color. */
+    --frame-text-color: #766f75;
 }
 
 body, .body-bg {
@@ -59,13 +64,13 @@ a {
 .frame-type-text .frame-inner,
 .frame-type-textmedia .frame-inner,
 .frame-type-textpic .frame-inner {
-    color: #7c939b;
+    color: var(--frame-text-color);
 }
 
 .frame-type-text .frame-inner a,
 .frame-type-textmedia .frame-inner a,
 .frame-type-textpic .frame-inner a {
-    color: #7c939b;
+    color: var(--frame-text-color);
 }
 
 .frame-type-text .frame-inner a:hover,
@@ -856,11 +861,11 @@ a:focus {
     font-size: 1.1rem;
     margin-top:.45em;
     margin-bottom:1em;
-    color:#7c939b;
+    color:var(--frame-text-color);
 }
 
 .list-normal li a {
-    color:#7c939b;
+    color:var(--frame-text-color);
 }
 
 #p22 h1 {
@@ -872,13 +877,26 @@ a:focus {
   display:none;
 }
 
+/* Detail pages (exhibit p22, artist p23, off-gallery p27, blog-news p33):
+   .element-header inherits --frame-text-color from .frame-type-text/
+   -textpic/-textmedia .frame-inner, clashing with the news/exhibit headline
+   (<h1 itemprop="headline">) which inherits --bs-body-color. Force the
+   element-headers to match the headline. (p25 statement detail is exempt —
+   its element-headers are hidden by the rule above.) */
+#p22 .element-header,
+#p23 .element-header,
+#p27 .element-header,
+#p33 .element-header {
+  color: var(--bs-body-color);
+}
+
 .news-related-links h4,
 .news-related-news h5 {
     margin-top: 0;
     margin-right: 10px;
     text-align: left;
-    color: #7c939b;
-    border-bottom: 1px solid #7c939b;
+    color: var(--frame-text-color);
+    border-bottom: 1px solid var(--frame-text-color);
 }
 
 .news-related-news-date {
@@ -887,7 +905,7 @@ a:focus {
 
 .news-related-links a,
 .news-related-news a {
-  color:#7c939b;
+  color:var(--frame-text-color);
 }
 
 .row .news-list-item .col-md-12 {
@@ -1385,14 +1403,14 @@ body, .body-bg {
     font-size: smaller;
     margin:0;
     padding:0;
-    color:var(--frame-link-color);
+    color:var(--frame-text-color);
 }
 
 #page-footer .frame-inner a,
 #page-footer h2.element-header.h4 {
     margin:0;
     padding:0;
-    color:var(--frame-link-color);
+    color:var(--frame-text-color);
 }
 
 .footer-section-meta {
@@ -1410,14 +1428,14 @@ body, .body-bg {
 }
 
 .footer-copyright p {
-  color:var(--frame-link-color);
+  color:var(--frame-text-color);
 }
 
 #c1502, #c1503, #c1504, #c1507 {
     margin-top:1.5rem;
     margin-bottom:1.5rem;
     padding:0;
-    color:var(--frame-link-color);
+    color:var(--frame-text-color);
 }
 
 #c1507 .frame-inner{
