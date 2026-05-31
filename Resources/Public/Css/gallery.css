@@ -1,12 +1,18 @@
 :root {
+    /* Brand palette — single source of truth. Pinned to the same hexes the
+       bootstrap_package theme uses (--bs-primary / --bs-black) but declared
+       locally so a theme upgrade can't shift them. */
+    --brand-primary: #766f75;   /* = --bs-primary */
+    --brand-black:   #000000;   /* = --bs-black  */
+
     --body-bkgd-color: #ffffff;
 
     /* Navigation design tokens (legacy aliases kept for existing rules) */
     --nav-menu-bg: rgba(246, 246, 246, 0.85);
-    --nav-link-color: #000000;
-    --nav-link-hover-color: #766f75;
-    --nav-link-active-color: #766f75;
-    --nav-toggle-color: #000000;
+    --nav-link-color: var(--brand-black);
+    --nav-link-hover-color: var(--brand-primary);
+    --nav-link-active-color: var(--brand-primary);
+    --nav-toggle-color: var(--brand-black);
     --nav-font-size: 1.1rem;
     --nav-font-weight: 500;
     --nav-header-padding-top: calc(3rem - 1rem);
@@ -35,10 +41,10 @@
     --cardgroup-gap: 1.5rem;
     --bs-gutter-x: 0;
 
-    /* Frame/footer text + link color. Locally pinned (replaces bootstrap_package's
-       contextual --frame-link-color, #766f75 on default backgrounds) so a theme
-       upgrade can't shift it. Value matches --bs-primary / --nav-link-hover-color. */
-    --frame-text-color: #766f75;
+    /* Frame/footer text + link color. Replaces bootstrap_package's contextual
+       --frame-link-color (#766f75 on default backgrounds) so a theme upgrade
+       can't shift it. */
+    --frame-text-color: var(--brand-primary);
 }
 
 body, .body-bg {
@@ -57,7 +63,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 a {
-  color:#000000;
+  color:var(--brand-black);
   text-decoration: none;
 }
 
@@ -573,17 +579,17 @@ a.btn-primary, a.btn-primary:hover {
 
 /* PhotoSwipe 5 dynamic captions (BP15) — white default text is invisible on white bg */
 .pswp .pswp__dynamic-caption {
-  color: #000 !important;
+  color: var(--brand-black) !important;
   font-size: calc(1rem - 2pt);
 }
 
 .pswp .pswp__dynamic-caption a {
-  color: #000 !important;
+  color: var(--brand-black) !important;
 }
 
 .pswp .pswp__dynamic-caption--aside,
 .pswp .pswp__dynamic-caption--below {
-  color: #000 !important;
+  color: var(--brand-black) !important;
 }
 
 .pswp .pswp__dynamic-caption--aside {
@@ -615,12 +621,12 @@ a.btn-primary, a.btn-primary:hover {
   background-color: transparent;
   overflow: visible;
   line-height: 1.35;
-  color: #000 !important;
+  color: var(--brand-black) !important;
 }
 
 .pswp .pswp__dynamic-caption--mobile {
   background-color: rgba(118, 111, 117, 0.85) !important;
-  color: #000 !important;
+  color: var(--brand-black) !important;
   font-size: calc(1rem - 2pt);
 }
 
@@ -630,7 +636,7 @@ a.btn-primary, a.btn-primary:hover {
   font-size: inherit;
   line-height: inherit;
   margin: 0;
-  color: #000 !important;
+  color: var(--brand-black) !important;
 }
 
 .pswp .pswp__dynamic-caption__subtitle,
@@ -638,7 +644,7 @@ a.btn-primary, a.btn-primary:hover {
   font-size: inherit;
   line-height: inherit;
   margin: 0;
-  color: #000 !important;
+  color: var(--brand-black) !important;
   opacity: 1 !important;
 }
 
@@ -655,7 +661,7 @@ a.btn-primary, a.btn-primary:hover {
 
 .pswp__caption__center,
 .pswp__caption__subtitle {
-  color: #000;
+  color: var(--brand-black);
   opacity: 1;
 }
 
@@ -711,7 +717,7 @@ div#c63.frame.default > h1 {
 }
 
 a {
-    color: #000;
+    color: var(--brand-black);
     text-decoration: none;
 }
 
