@@ -5,6 +5,13 @@ type: Form
 identifier: contact
 label: Contact
 prototypeName: standard
+finishers:
+  -
+    options:
+      pageUid: '64'
+      additionalParameters: ''
+      fragment: ''
+    identifier: Redirect
 renderables:
   -
     renderingOptions:
@@ -71,11 +78,6 @@ renderables:
                 identifier: NotEmpty
           -
             defaultValue: ''
-            validators:
-              -
-                identifier: EmailAddress
-              -
-                identifier: NotEmpty
             type: Email
             identifier: email-1
             label: e-mail
@@ -96,6 +98,11 @@ renderables:
                     numbersOfColumnsToUse: '12'
               fluidAdditionalAttributes:
                 required: required
+            validators:
+              -
+                identifier: EmailAddress
+              -
+                identifier: NotEmpty
           -
             defaultValue: ''
             type: Text
