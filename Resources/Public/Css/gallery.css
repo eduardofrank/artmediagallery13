@@ -1455,17 +1455,26 @@ body, .body-bg {
   #c1504 {
       padding-left: 4rem;
   }
+  #c1502, #c1503, #c1507 {
+      padding-left: 3rem;
+  }
 }
 
 @media (min-width: 992px) {
   #c1504 {
       padding-left: 8rem;
   }
+  #c1502, #c1503, #c1507 {
+      padding-left: 4rem;
+  }
 }
 
 @media (min-width: 1200px) {
   #c1504 {
       padding-left: 13rem;
+  }
+  #c1502, #c1503, #c1507 {
+      padding-left: 4rem;
   }
 }
 
